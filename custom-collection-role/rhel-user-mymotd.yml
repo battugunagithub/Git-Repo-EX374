@@ -1,0 +1,6 @@
+---
+- name: test mymotd role from rhel.user custom collection
+  hosts: webservers
+  gather_facts: true
+  roles:
+  - rhel.user.mymotd
