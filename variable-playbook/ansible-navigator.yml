@@ -1,0 +1,11 @@
+---
+ansible-navigator:
+  execution-environment:
+    image: hub.lab.example.com/custom-ee-python:v1.0
+    pull:
+      policy: missing
+  logging:
+    file: /dev/null
+  mode: stdout
+  playbook-artifact:
+    enable: false
