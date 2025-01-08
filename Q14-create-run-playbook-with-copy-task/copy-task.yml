@@ -1,0 +1,9 @@
+---
+- name: copy playbook with dynamic inventory
+  hosts: servera.lab.example.com
+  become: true
+  tasks:
+    - name: copy file to testing group server
+      ansible.builtin.copy:
+        content: "content from copy playbook \n"
+        dest: /var/www/html/index.html

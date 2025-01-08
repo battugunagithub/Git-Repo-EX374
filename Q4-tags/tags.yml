@@ -1,0 +1,16 @@
+---
+- name: tags playbook using specific tag
+  hosts: dev
+  become: true
+  gather_facts: true
+  tasks:
+    - name: tags first task
+      ansible.builtin.copy:
+        content: "hello"
+        dest: /var/www/html/index.html
+      tags: [never, alpha]
+    - name: tags second task
+      ansible.builtin.copy:
+        content: "by by"
+        dest: /var/www/html/index.html
+      tags: [never, beta]

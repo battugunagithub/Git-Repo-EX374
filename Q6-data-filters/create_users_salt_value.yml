@@ -1,0 +1,19 @@
+---
+- name: this is to create users with sha512 encrypttion with salt value files
+  hosts: dev
+  become: true
+  gather_facts: false
+  vars_files:
+    - user_list.yml
+  tasks:
+    - name: creating users
+      vars:
+        password: "{{ lookup ('ansible.builtin.password', 'password-' + item.name, chars='digits', length=6, encrypt='sha512_crypt') }}"
+      ansible.builtin.user:
+        name: "{{ item.name }}"
+        uid: "{{ item.uid }}"
+        state: present
+        password: "{{ password }}"
+        update_password: on_create
+        comment: "{{ item.first | capitalize }} {{ item.middle | capitalize }} {{ item.last | capitalize }}"
+      loop: "{{ users }}"

@@ -1,0 +1,9 @@
+---
+# tasks file for mymotd
+- name: configure banner /etc/motd on target server
+  ansible.builtin.template:
+    src: files/motd.txt
+    dest: /etc/motd
+    owner: root
+    group: root
+    mode: 644

@@ -1,0 +1,4 @@
+.ssh/
+ansible-navigator.log
+*-artifact-*
+.git
