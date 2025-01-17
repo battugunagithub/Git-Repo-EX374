@@ -1,6 +1,6 @@
 ---
 ansible-navigator:
-  execution--environment:
+  execution-environment:
     image: hub.lab.example.com/ee-supported-rhel8:latest
     pull:
       policy: missing
